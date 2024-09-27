@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score
 
 # Ruta fija del archivo CSV
-RUTA_ARCHIVO_CSV = '/home/emexsis/Escritorio/regresionLineal1.0/regrecionLineal/StudentPerformanceFactors 20Data.csv'
+RUTA_ARCHIVO_CSV = 'StudentPerformanceFactors 20Data.csv'
 
 # Función para cargar datos desde un archivo CSV
 def cargar_datos_csv(ruta_archivo):
@@ -52,4 +52,13 @@ else:
     plt.xlabel('Horas Estudiadas')
     plt.ylabel('Puntuación del Examen')
     plt.legend()
-    plt.show()
+
+    # Mostrar la gráfica
+    try:
+        plt.show()  # Intenta mostrar la gráfica si el entorno lo permite
+    except:
+        print("No se pudo mostrar la gráfica directamente, se guardará como archivo.")
+
+    # Guardar la gráfica como archivo si no se muestra
+    plt.savefig('grafica.png')
+    print("La gráfica ha sido guardada como 'grafica.png'. Puedes revisarla en el explorador de archivos.")
